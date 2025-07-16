@@ -1,27 +1,52 @@
 {
   "name": "castle-oauth-consent",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "OAuth 2.0 + PKCE consent screen for Castle applications",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug"
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.4.1"
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.2.16",
+    "zod": "^3.23.8",
+    "lucide-react": "^0.460.0",
+    "next-themes": "^0.4.4"
   },
   "devDependencies": {
     "typescript": "^5",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.1",
-    "@eslint/eslintrc": "^3"
-  }
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@tailwindcss/postcss": "^4.0.0",
+    "tailwindcss": "^3.4.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.16",
+    "@eslint/eslintrc": "^3.2.0",
+    "@playwright/test": "^1.49.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "oauth",
+    "oauth2",
+    "pkce",
+    "authorization",
+    "consent",
+    "security",
+    "castle",
+    "nextjs",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": "Castle Team",
+  "license": "MIT"
 }
