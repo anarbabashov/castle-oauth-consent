@@ -3,19 +3,19 @@ import Image from 'next/image'
 import { ArrowRight, Lock, CheckCircle } from 'lucide-react'
 
 export default function HomePage() {
-	return (
+  return (
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
 			<div className="max-w-4xl mx-auto text-center">
 				<div className="bg-white rounded-3xl shadow-2xl p-12 mb-8">
 					<div className="flex justify-center mb-8">
-						<Image
+        <Image
 							src="/castle-logo.svg"
 							alt="Castle Logo"
 							width={200}
-							height={38}
+          height={38}
 							className="h-12 w-auto"
-							priority
-						/>
+          priority
+        />
 					</div>
 					
 					<h1 className="text-4xl font-bold text-gray-900 mb-6">
@@ -35,7 +35,7 @@ export default function HomePage() {
 							<h3 className="font-semibold text-gray-900 mb-2">Secure</h3>
 							<p className="text-sm text-gray-600">OAuth 2.0 with PKCE ensures secure authorization</p>
 						</div>
-						
+
 						<div className="text-center">
 							<div className="bg-blue-100 rounded-full p-3 w-fit mx-auto mb-4">
 								<CheckCircle className="h-6 w-6 text-blue-600" />
@@ -87,7 +87,7 @@ export default function HomePage() {
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+        </div>
+    </div>
 	)
 }
