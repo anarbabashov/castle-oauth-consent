@@ -59,7 +59,7 @@ export async function getOAuthClient(clientId: string, scope: string): Promise<O
 			name: data.name || 'Unknown Application',
 			description: data.display_description || 'No description available',
 			logo: data.logo_uri,
-			scopes: data.scope_description?.map((desc, index) => ({
+			scopes: data.scope_description?.map((desc) => ({
 				name: desc.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, ''), // Create scope name from description
 				description: desc
 			})) || [{ name: scope, description: 'Access to conversion data' }]
