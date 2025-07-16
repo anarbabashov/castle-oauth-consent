@@ -40,20 +40,29 @@ export async function getOAuthClient(clientId: string, scope: string): Promise<O
 	const url = `${API_BASE_URL}/oauth/scopes?client_id=${encodeURIComponent(clientId)}&scope=${encodeURIComponent(scope)}`
 	
 	try {
-		const data = await apiRequest<{
-			name?: string
-			description?: string
-			logo?: string
-			scopes?: { name: string; description: string }[]
+		const response = await apiRequest<{
+			data: {
+				client_id: string
+				name?: string
+				display_description?: string
+				logo_uri?: string
+				scope_description?: string[]
+				previous_consented?: boolean
+			}
 		}>(url)
+		
+		const { data } = response
 		
 		// Transform the API response to match our interface
 		return {
 			id: clientId,
 			name: data.name || 'Unknown Application',
-			description: data.description || 'No description available',
-			logo: data.logo,
-			scopes: data.scopes || [{ name: scope, description: 'Access to conversion data' }]
+			description: data.display_description || 'No description available',
+			logo: data.logo_uri,
+			scopes: data.scope_description?.map((desc, index) => ({
+				name: desc.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, ''), // Create scope name from description
+				description: desc
+			})) || [{ name: scope, description: 'Access to conversion data' }]
 		}
 	} catch (error) {
 		if (error instanceof OAuthAPIError) {
